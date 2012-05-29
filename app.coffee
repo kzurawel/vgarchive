@@ -18,7 +18,7 @@ app.configure ->
     dumpExceptions: true
     showStack: true
 
-  # Schema configuration
+# Schema configuration
 
 GameModel = mongoose.model 'Game', new mongoose.Schema
   title:
@@ -33,6 +33,9 @@ GameModel = mongoose.model 'Game', new mongoose.Schema
 
 
 # Routes
+
+app.get '/', (req, res) ->
+  res.render path.join(__dirname, '/public/index.jade'), {layout: false}
 
 app.get '/api', (req, res) ->
   res.send 'VGArchive API is running'
